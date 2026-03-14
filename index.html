@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy — Block Breaker | Zerivon Labs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cyan: #00e5ff;
+            --cyan-glow: rgba(0, 229, 255, 0.4);
+            --purple: #d500f9;
+            --purple-glow: rgba(213, 0, 249, 0.3);
+            --bg-deep: #050510;
+            --bg-card: rgba(15, 15, 35, 0.85);
+            --text: #e0e0f0;
+            --text-dim: #8888aa;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-deep);
+            color: var(--text);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* ====== Animated Background ====== */
+        .bg-grid {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            background-image:
+                linear-gradient(rgba(0, 229, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 229, 255, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            animation: gridScroll 20s linear infinite;
+        }
+
+        @keyframes gridScroll {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(60px); }
+        }
+
+        .bg-orbs {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            animation: orbFloat 12s ease-in-out infinite alternate;
+        }
+
+        .orb-1 {
+            width: 400px; height: 400px;
+            background: radial-gradient(circle, var(--cyan-glow), transparent);
+            top: -100px; right: -100px;
+            animation-delay: 0s;
+        }
+
+        .orb-2 {
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, var(--purple-glow), transparent);
+            bottom: -150px; left: -150px;
+            animation-delay: -4s;
+        }
+
+        .orb-3 {
+            width: 300px; height: 300px;
+            background: radial-gradient(circle, rgba(255, 234, 0, 0.15), transparent);
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            animation-delay: -8s;
+        }
+
+        @keyframes orbFloat {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(30px, -40px) scale(1.1); }
+        }
+
+        /* ====== Layout ====== */
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+        }
+
+        /* ====== Header ====== */
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+            perspective: 800px;
+        }
+
+        .logo-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--bg-card);
+            border: 1px solid rgba(0, 229, 255, 0.2);
+            border-radius: 50px;
+            padding: 10px 24px;
+            margin-bottom: 24px;
+            backdrop-filter: blur(20px);
+        }
+
+        .logo-dot {
+            width: 12px; height: 12px;
+            border-radius: 50%;
+            background: var(--cyan);
+            box-shadow: 0 0 12px var(--cyan), 0 0 30px var(--cyan-glow);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 12px var(--cyan), 0 0 30px var(--cyan-glow); }
+            50% { box-shadow: 0 0 20px var(--cyan), 0 0 50px var(--cyan-glow); }
+        }
+
+        .logo-text {
+            font-family: 'Orbitron', monospace;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--cyan);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .header h1 {
+            font-family: 'Orbitron', monospace;
+            font-size: clamp(32px, 6vw, 56px);
+            font-weight: 900;
+            line-height: 1.1;
+            background: linear-gradient(135deg, var(--cyan), var(--purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            animation: titleGlow 4s ease-in-out infinite alternate;
+            transform: rotateX(5deg);
+        }
+
+        @keyframes titleGlow {
+            0% { filter: drop-shadow(0 0 20px var(--cyan-glow)); }
+            100% { filter: drop-shadow(0 0 40px var(--purple-glow)); }
+        }
+
+        .header .subtitle {
+            font-size: 16px;
+            color: var(--text-dim);
+            margin-top: 12px;
+            letter-spacing: 1px;
+        }
+
+        .header .app-name {
+            font-family: 'Orbitron', monospace;
+            font-weight: 700;
+            color: var(--cyan);
+        }
+
+        .last-updated {
+            display: inline-block;
+            margin-top: 16px;
+            padding: 6px 16px;
+            border-radius: 20px;
+            background: rgba(0, 229, 255, 0.08);
+            border: 1px solid rgba(0, 229, 255, 0.15);
+            font-size: 13px;
+            color: var(--text-dim);
+        }
+
+        /* ====== Section Cards ====== */
+        .section {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 20px;
+            padding: 32px;
+            margin-bottom: 24px;
+            backdrop-filter: blur(20px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .section:hover {
+            transform: translateY(-4px) scale(1.01);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 30px var(--cyan-glow);
+            border-color: rgba(0, 229, 255, 0.2);
+        }
+
+        .section:hover::before {
+            opacity: 1;
+        }
+
+        .section-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px; height: 36px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--cyan), var(--purple));
+            font-family: 'Orbitron', monospace;
+            font-weight: 900;
+            font-size: 16px;
+            color: #fff;
+            margin-bottom: 16px;
+            box-shadow: 0 4px 20px var(--cyan-glow);
+        }
+
+        .section h2 {
+            font-family: 'Orbitron', monospace;
+            font-size: 20px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+        }
+
+        .section p {
+            font-size: 15px;
+            line-height: 1.8;
+            color: var(--text-dim);
+        }
+
+        .section a {
+            color: var(--cyan);
+            text-decoration: none;
+            border-bottom: 1px dashed rgba(0, 229, 255, 0.4);
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .section a:hover {
+            color: #fff;
+            border-bottom-color: var(--cyan);
+        }
+
+        .highlight {
+            background: rgba(0, 229, 255, 0.08);
+            border-left: 3px solid var(--cyan);
+            padding: 16px 20px;
+            border-radius: 0 12px 12px 0;
+            margin: 16px 0;
+        }
+
+        .highlight p {
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        /* ====== Contact Card ====== */
+        .contact-card {
+            background: linear-gradient(135deg, rgba(0, 229, 255, 0.08), rgba(213, 0, 249, 0.08));
+            border: 1px solid rgba(0, 229, 255, 0.15);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .contact-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .contact-icon {
+            width: 36px; height: 36px;
+            border-radius: 10px;
+            background: rgba(0, 229, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .contact-label {
+            font-size: 12px;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .contact-value {
+            font-size: 15px;
+            color: var(--cyan);
+            font-weight: 600;
+        }
+
+        /* ====== Footer ====== */
+        .footer {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer .company {
+            font-family: 'Orbitron', monospace;
+            font-size: 18px;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--cyan), var(--purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .footer p {
+            color: var(--text-dim);
+            font-size: 13px;
+            margin-top: 8px;
+        }
+
+        /* ====== Responsive ====== */
+        @media (max-width: 600px) {
+            .container { padding: 24px 16px 60px; }
+            .section { padding: 24px 20px; }
+            .section h2 { font-size: 17px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="bg-grid"></div>
+    <div class="bg-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo-badge">
+                <div class="logo-dot"></div>
+                <span class="logo-text">Zerivon Labs</span>
+            </div>
+            <h1>Privacy Policy</h1>
+            <p class="subtitle">For <span class="app-name">Block Breaker</span></p>
+            <span class="last-updated">Last updated: March 14, 2026</span>
+        </header>
+
+        <!-- Section 1 -->
+        <div class="section">
+            <div class="section-number">1</div>
+            <h2>Information We Collect</h2>
+            <p>
+                Block Breaker ("the App") by <strong>Zerivon Labs</strong> does not collect, store, 
+                or transmit any personal information. The game operates entirely offline and does not 
+                require an internet connection to play.
+            </p>
+            <div class="highlight">
+                <p>🔒 We collect zero personal data. Your privacy is fully protected.</p>
+            </div>
+        </div>
+
+        <!-- Section 2 -->
+        <div class="section">
+            <div class="section-number">2</div>
+            <h2>Data Storage</h2>
+            <p>
+                Game progress — including your score, level, and ball count — is saved locally on your 
+                device using Android SharedPreferences. This data never leaves your device and is 
+                automatically deleted when the app is uninstalled.
+            </p>
+        </div>
+
+        <!-- Section 3 -->
+        <div class="section">
+            <div class="section-number">3</div>
+            <h2>Third-Party Services</h2>
+            <p>
+                This app uses <strong>Firebase Crashlytics</strong> to collect anonymous crash reports. 
+                Crashlytics may collect device information such as device model, OS version, and crash 
+                stack traces. No personally identifiable information is collected.
+            </p>
+            <p style="margin-top: 12px;">
+                Learn more about Firebase's privacy practices at 
+                <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">
+                    firebase.google.com/support/privacy
+                </a>.
+            </p>
+        </div>
+
+        <!-- Section 4 -->
+        <div class="section">
+            <div class="section-number">4</div>
+            <h2>Advertising</h2>
+            <p>
+                This app does not display any advertisements and does not use any advertising SDKs 
+                or tracking frameworks.
+            </p>
+        </div>
+
+        <!-- Section 5 -->
+        <div class="section">
+            <div class="section-number">5</div>
+            <h2>Children's Privacy</h2>
+            <p>
+                This game is suitable for all ages. We do not knowingly collect personal information 
+                from children. Since no personal data is collected at all, the app complies with 
+                <strong>COPPA</strong> (Children's Online Privacy Protection Act).
+            </p>
+        </div>
+
+        <!-- Section 6 -->
+        <div class="section">
+            <div class="section-number">6</div>
+            <h2>Changes to This Policy</h2>
+            <p>
+                We may update this Privacy Policy from time to time. Any changes will be reflected in 
+                the app update and the "Last updated" date at the top of this page will be revised. 
+                We encourage you to review this page periodically for any changes.
+            </p>
+        </div>
+
+        <!-- Section 7: Contact -->
+        <div class="section contact-card">
+            <div class="section-number">7</div>
+            <h2>Contact Us</h2>
+            <p>
+                If you have any questions or concerns about this Privacy Policy, please reach out to us:
+            </p>
+            <div class="contact-info">
+                <div class="contact-row">
+                    <div class="contact-icon">🏢</div>
+                    <div>
+                        <div class="contact-label">Company</div>
+                        <div class="contact-value">Zerivon Labs</div>
+                    </div>
+                </div>
+                <div class="contact-row">
+                    <div class="contact-icon">✉️</div>
+                    <div>
+                        <div class="contact-label">Email</div>
+                        <div class="contact-value">
+                            <a href="mailto:zerivonlab@gmail.com" style="border:none;">zerivonlab@gmail.com</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="company">Zerivon Labs</div>
+            <p>© 2026 Zerivon Labs. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
